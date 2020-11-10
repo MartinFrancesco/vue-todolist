@@ -29,9 +29,9 @@
         <main>
           <div class="main-box">
             <ul>
-              <li v-for= "element in newToDo">
-                <a href="#"><i class="far fa-square"></i>{{element}}</a>
-                <label for="">{{time}}</label>
+              <li v-for="element in newToDo">
+                <a href="#"><i class="far fa-square"></i></a>{{newToDo}}
+                <label for="">{{newTime}}</label>
               </li>
             </ul>
           </div>
@@ -43,7 +43,7 @@
             <!-- Input DATA -->
             <div class="inputs">
               <input @keyup.enter= "saveElement" v-model.trim="toDo" type="text" name="" value="" placeholder="ToDo">
-              <input v-model.trim="time" type="text" name="" value="" placeholder="Time">
+              <input @keyup.enter= "saveElement" v-model.trim.number="time" type="text" name="" value="" placeholder="Time">
             </div>
 
           </div>

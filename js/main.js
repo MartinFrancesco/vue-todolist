@@ -6,12 +6,17 @@ const app = new Vue({
     toDo: '',
     time: '',
     newToDo: [],
+    newTime: [],
 
   },
   methods: {
-    saveElement: () => {
+    saveElement: function() {
 
-      this.newToDo.push(toDo);
+      // this.newToDo.push(this.toDo);
+      //
+      // if (newToDo.includes(this.toDo)) {
+      //   this.newTime.push(this.time);
+      // }
 
     }
   }
