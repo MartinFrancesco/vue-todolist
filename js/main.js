@@ -19,7 +19,16 @@ const app = new Vue({
   methods: {
     saveElement() {
 
-      this.newToDo.push(this.toDo);
+      let verify = true;
+
+      if (this.toDo === null) {
+         verify = false;
+      };
+
+      if (verify === true) {
+        this.newToDo.push(this.toDo);
+      };
+
       this.toDo = null;
       this.task = this.newToDo.length;
       //
