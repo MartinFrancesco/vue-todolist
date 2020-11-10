@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue-todolist</title>
+    <!-- VUE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Fontawesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
+    <!-- Style.css -->
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+<!-- Start VUE APP -->
+    <div id="app">
+      <div class="card">
+        <!-- HEADER -->
+        <header>
+          <div class="header">
+            <i class="fas fa-chevron-left"></i>
+            <h1>Monday,</h1>
+            <h2 class="light">March 19th</h2>
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </header>
+        <!-- MAIN -->
+        <main>
+          <div class="main-box">
+            <ul>
+              <li v-for= "element in newToDo">
+                <a href="#"><i class="far fa-square"></i>{{element}}</a>
+                <label for="">{{time}}</label>
+              </li>
+            </ul>
+          </div>
+        </main>
+        <!-- FOOTER -->
+        <footer>
+          <div class="footer">
+            <label class="light" for="">4 Task</label>
+            <!-- Input DATA -->
+            <div class="inputs">
+              <input @keyup.enter= "saveElement" v-model.trim="toDo" type="text" name="" value="" placeholder="ToDo">
+              <input v-model.trim="time" type="text" name="" value="" placeholder="Time">
+            </div>
+
+          </div>
+        </footer>
+      </div>
+    </div>
+
+<!-- SCRIPT JS -->
+  <script type="text/javascript" src="./js/main.js"></script>
+  </body>
+</html>
