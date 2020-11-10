@@ -137,12 +137,11 @@ footer .footer {
 footer .inputs input {
   font-size: 14px;
   font-weight: bold;
-  width: 90px;
+  width: 200px;
   margin-left: 10px;
   padding: 10px;
-  color: #fff;
-  background: #6b7dff;
-  border: none;
+  color: #6b7dff;
+  border: 3px solid #6b7dff;
   border-radius: 5px;
   outline: none;
 }

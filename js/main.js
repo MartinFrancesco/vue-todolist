@@ -40,6 +40,7 @@ const app = new Vue({
     removeToDo(index) {
 
       this.newToDo.splice(index, 1);
+      this.task = this.newToDo.length;
 
     },
     getNow: function() {
