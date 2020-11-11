@@ -52,8 +52,8 @@
             <h2 class="light" for="">{{task}} Task</h2>
             <!-- Input DATA -->
             <div class="inputs">
-              <input @keyup.enter= "saveElement" v-model.trim="toDo"  type="text" name="" value="" placeholder="To Do">
-              <input @keyup.enter= "saveElement" v-model.trim.number="time" type="text" name="" value="" placeholder="Time">
+              <input @keyup.enter= "saveToDo" v-model.trim="toDo"  type="text" name="" value="" placeholder="To Do">
+              <input @keyup.enter= "saveTime" v-model.trim.number="time" type="text" name="" value="" placeholder="Time">
             </div>
 
           </div>

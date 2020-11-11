@@ -10,7 +10,8 @@ const app = new Vue({
     arrayDays:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",],
     dayNumber: 0,
     monthNumber: 0,
-    prev: false,
+    valore1: null,
+    valore2: null,
     toDo: '',
     time: '',
     task: '',
@@ -22,26 +23,30 @@ const app = new Vue({
            },
 
   methods: {
-    saveElement() {
+    saveToDo() {
 
-      let verify = true;
-
-      while ((this.toDo = null) || (this.time = null) || (this.toDo = '') && (this.time = null)) {
-        verify = false;
-
-      };
-
-      if (verify === true) {
-        this.newToDo.push({
-          text: this.toDo,
-          time: this.time,
-        });
-      };
-
+      this.toDo = this.valore1;
+      pushElement();
       this.toDo = null;
-      this.time = null;
-      this.task = this.newToDo.length;
 
+    },
+    saveTime() {
+
+      this.time = this.valore2;
+      pushElement();
+      this.time = null;
+
+    },
+    pushElement() {
+
+      if ((this.valore1 !== null) || (this.valore2 !== null)) {
+        this.newToDo.push({
+          text: this.valore1,
+          time: this.valore2,
+        });
+      }
+
+      this.task = this.newToDo.length;
     },
     removeToDo(index) {
 
