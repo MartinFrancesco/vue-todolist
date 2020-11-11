@@ -6,6 +6,11 @@ const app = new Vue({
     dayStamp: '',
     numTodayStamp: '',
     monthStamp: '',
+    arrayMonths: [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",  "November",  "December",],
+    arrayDays:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",],
+    dayNumber: 0,
+    monthNumber: 0,
+    prev: false,
     toDo: '',
     time: '',
     task: '',
@@ -13,7 +18,7 @@ const app = new Vue({
   },
 
   created() {
-               setInterval(this.getNow, 1000);
+               this.getNow();
            },
 
   methods: {
@@ -21,60 +26,59 @@ const app = new Vue({
 
       let verify = true;
 
-      if (this.toDo === null) {
-         verify = false;
+      while ((this.toDo = null) || (this.time = null) || (this.toDo = '') && (this.time = null)) {
+        verify = false;
+
       };
 
       if (verify === true) {
-        this.newToDo.push(this.toDo);
+        this.newToDo.push({
+          text: this.toDo,
+          time: this.time,
+        });
       };
 
       this.toDo = null;
+      this.time = null;
       this.task = this.newToDo.length;
-      //
-      // if (newToDo.includes(this.toDo)) {
-      //   this.newTime.push(this.time);
-      // }
 
     },
     removeToDo(index) {
 
       this.newToDo.splice(index, 1);
       this.task = this.newToDo.length;
-
     },
     getNow: function() {
 
       const d = new Date();
-      let weekday = new Array(7);
-      weekday[0] = "Sunday";
-      weekday[1] = "Monday";
-      weekday[2] = "Tuesday";
-      weekday[3] = "Wednesday";
-      weekday[4] = "Thursday";
-      weekday[5] = "Friday";
-      weekday[6] = "Saturday";
-      const date = weekday[d.getDay()];
-      let month = new Array(12);
-      month[0] = "January";
-      month[1] = "February";
-      month[2] = "March";
-      month[3] = "April";
-      month[4] = "May";
-      month[5] = "June";
-      month[6] = "July";
-      month[7] = "August";
-      month[8] = "September";
-      month[9] = "October";
-      month[10] = "November";
-      month[11] = "December";
-      const months = month[d.getMonth()];
+      const date = this.arrayDays[d.getDay()];
+      const months = this.arrayMonths[d.getMonth()];
       const today = d.getDate();
-      const day = date;
-      this.dayStamp = day;
+      this.dayStamp = date;
       this.numTodayStamp = today;
       this.monthStamp = months;
-    },
+      this.dayNumber = d.getDay();
+      this.monthNumber = d.getMonth();
 
+      // if (this.prev === true) {
+      //   this.dayStamp = weekday[d.getDay() - 1];
+      //   this.numTodayStamp = today - 1;
+      //   this.monthStamp = month[d.getMonth() - 1];
+      // };
+    },
+    getPrev() {
+
+      this.prev = true;
+      // const d = new Date();
+      // const today = d.getDate();
+
+      this.dayStamp = this.arrayDays[ this.dayNumber - 1];
+      this.numTodayStamp = this.numTodayStamp - 1;
+      this.monthStamp = this.arrayMonths[ this.monthNumber - 1];
+      this.dayNumber -= 1;
+      this.monthNumber -= 1;
+
+
+    },
   }
 }); // ==> FINISH VUE READY
