@@ -10,8 +10,8 @@ const app = new Vue({
     arrayDays:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",],
     dayNumber: 0,
     monthNumber: 0,
-    valore1: null,
-    valore2: null,
+    valore1: '',
+    valore2: '',
     toDo: '',
     time: '',
     task: '',
@@ -23,30 +23,17 @@ const app = new Vue({
            },
 
   methods: {
-    saveToDo() {
-
-      this.toDo = this.valore1;
-      pushElement();
-      this.toDo = null;
-
-    },
-    saveTime() {
-
-      this.time = this.valore2;
-      pushElement();
-      this.time = null;
-
-    },
     pushElement() {
 
-      if ((this.valore1 !== null) || (this.valore2 !== null)) {
+      if ((this.toDo !== '') && (this.time !== '')) {
         this.newToDo.push({
-          text: this.valore1,
-          time: this.valore2,
+          text: this.toDo,
+          time: this.time,
         });
+        this.toDo = '';
+        this.time = '';
+        this.task = this.newToDo.length;
       }
-
-      this.task = this.newToDo.length;
     },
     removeToDo(index) {
 
@@ -64,26 +51,26 @@ const app = new Vue({
       this.monthStamp = months;
       this.dayNumber = d.getDay();
       this.monthNumber = d.getMonth();
-
-      // if (this.prev === true) {
-      //   this.dayStamp = weekday[d.getDay() - 1];
-      //   this.numTodayStamp = today - 1;
-      //   this.monthStamp = month[d.getMonth() - 1];
-      // };
     },
-    getPrev() {
-
-      this.prev = true;
-      // const d = new Date();
-      // const today = d.getDate();
-
-      this.dayStamp = this.arrayDays[ this.dayNumber - 1];
-      this.numTodayStamp = this.numTodayStamp - 1;
-      this.monthStamp = this.arrayMonths[ this.monthNumber - 1];
-      this.dayNumber -= 1;
-      this.monthNumber -= 1;
-
-
-    },
+    // getPrev() {
+    //
+    //   this.dayStamp = this.arrayDays[ this.dayNumber - 1];
+    //   this.numTodayStamp = this.numTodayStamp - 1;
+    //   this.monthStamp = this.arrayMonths[ this.monthNumber - 1];
+    //   this.dayNumber -= 1;
+    //   this.monthNumber -= 1;
+    //
+    //
+    // },
+    // getNext() {
+    //
+    //   this.dayStamp = this.arrayDays[ this.dayNumber + 1];
+    //   this.numTodayStamp = this.numTodayStamp + 1;
+    //   this.monthStamp = this.arrayMonths[ this.monthNumber + 1];
+    //   this.dayNumber += 1;
+    //   this.monthNumber += 1;
+    //
+    //
+    // },
   }
 }); // ==> FINISH VUE READY

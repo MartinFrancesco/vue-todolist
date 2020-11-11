@@ -19,7 +19,7 @@
         <!-- HEADER -->
         <header>
           <div class="header">
-            <div @click="getPrev" class="prev">
+            <div class="prev">
               <a href="#">
                 <i class="fas fa-chevron-left"></i>
               </a>
@@ -40,8 +40,10 @@
           <div class="main-box">
             <ul>
               <li @click="removeToDo(index)" v-for="(element, index) in newToDo">
-                <a href="#"><i class="far fa-square"></i></a>{{element.text}}
-                <label for="">{{element.time}}</label>
+                <a href="#"><i class="far fa-square"></i>{{element.text}}</a>
+                <div class="right">
+                  <label class="light" for="">h {{element.time}}</label>
+                </div>
               </li>
             </ul>
           </div>
@@ -52,8 +54,8 @@
             <h2 class="light" for="">{{task}} Task</h2>
             <!-- Input DATA -->
             <div class="inputs">
-              <input @keyup.enter= "saveToDo" v-model.trim="toDo"  type="text" name="" value="" placeholder="To Do">
-              <input @keyup.enter= "saveTime" v-model.trim.number="time" type="text" name="" value="" placeholder="Time">
+              <input @keyup.enter= "pushElement" v-model.trim="toDo"  type="text" name="" value="" placeholder="To Do">
+              <input @keyup.enter= "pushElement" v-model.trim.number="time" type="text" name="" value="" placeholder="Time">
             </div>
 
           </div>

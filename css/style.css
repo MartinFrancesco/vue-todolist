@@ -20,10 +20,10 @@ body {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 23px;
   font-weight: 800;
   text-transform: uppercase;
-  margin-right: 15px;
+  margin-right: 8px;
 }
 
 .light {
@@ -89,8 +89,9 @@ main {
 }
 
 .main-box ul li {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
   flex-basis: 100%;
@@ -99,13 +100,19 @@ main {
 }
 .main-box ul li a {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   transition: 0.5s;
 }
 
+.main-box ul li .right {
+  position: absolute;
+  right: 0;
+}
+
 .main-box ul li a i {
   font-size: 30px;
-  margin-right: 25px;
+  margin-right: 20px;
   transition: 0.5s;
 }
 
@@ -118,6 +125,7 @@ main {
 
 .main-box ul li a:hover {
   font-size: 25px;
+  font-weight: 800;
 }
 
 /* FOOTER */
